@@ -21,7 +21,7 @@ body {
   background: var(--black);
   color: var(--text);
   font-family: 'EB Garamond', serif;
-  cursor: url('img/cursor-ankh.cur') 16 16, crosshair;
+  cursor: url('./img/cursor-ankh.cur') 16 16, crosshair;
 }
 
 ::-webkit-scrollbar {

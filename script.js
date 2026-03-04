@@ -79,14 +79,27 @@ function revealToggle(el) {
 
 // leaflet map
 
+const mapPins = [
+  { latlng: [30.01379579488688, 31.730987992935404], img: "img/nac.webp" },
+  { latlng: [30.0444, 31.2357],                      img: "img/cairo.webp" },
+  { latlng: [30.01, 31.45],                          img: "img/newcairo.jpg" },
+];
+
+function openMapModal(index) {
+  document.querySelector(".map-modal-img").src = mapPins[index].img;
+  document.getElementById("map-modal").classList.add("open");
+}
+
+function closeMapModal() {
+  document.getElementById("map-modal").classList.remove("open");
+}
+
 function initMap() {
-  var map = L.map("nac-map", {
-    center: [30.01379579488688, 31.730987992935404],
-    zoom: 11,
+  const map = L.map("nac-map", {
     zoomControl: false,
     scrollWheelZoom: true,
     dragging: true,
-    minZoom: 8,
+    minZoom: 7,
     maxZoom: 25,
     doubleClickZoom: true,
     touchZoom: true,
@@ -98,35 +111,21 @@ function initMap() {
     subdomains: "abcd",
   }).addTo(map);
 
-  var bounds = L.latLngBounds(
-    [29.97, 31.63], // southwest corner
-    [30.07, 31.83], // northeast corner
-  );
+  map.fitBounds(L.latLngBounds(mapPins.map(p => p.latlng)), { padding: [48, 48] });
 
-  map.setMaxBounds(bounds);
-  map.options.maxBoundsViscosity = 1.0; // hard stop
+  map.setMaxBounds(L.latLngBounds([29.8, 31.0], [30.2, 32.0]));
+  map.options.maxBoundsViscosity = 1.0;
 
-  var dotIcon = L.divIcon({
+  const dotIcon = L.divIcon({
     className: "leaflet-dot-icon",
-    html: '<div class="lmap-pin"></div>',
-    iconSize: [10, 10],
-    iconAnchor: [5, 5],
-    popupAnchor: [0, -8],
+    html: '<div class="lmap-pin-wrapper"><div class="lmap-pin-ring"></div><div class="lmap-pin-ring lmap-pin-ring-2"></div><div class="lmap-pin"></div></div>',
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
   });
 
-  L.marker([30.01379579488688, 31.730987992935404], { icon: dotIcon })
-    .addTo(map)
-    .bindPopup("NAC site - construction began 2017", {
-      className: "lmap-popup",
-    });
-
-  L.marker([30.0444, 31.2357], { icon: dotIcon })
-    .addTo(map)
-    .bindPopup("Cairo", { className: "lmap-popup" });
-
-  L.marker([30.01, 31.45], { icon: dotIcon })
-    .addTo(map)
-    .bindPopup("New Cairo", {
-      className: "lmap-popup",
-    });
+  mapPins.forEach((pin, i) => {
+    L.marker(pin.latlng, { icon: dotIcon })
+      .addTo(map)
+      .on("click", () => openMapModal(i));
+  });
 }

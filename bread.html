@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utopia - Bread</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div id="page-indicator"></div>
+  <main class="page">
+    <div class="section-header">
+      <h2 class="section-title">Bread</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="bread-layout">
+      <div class="budget-block">
+        <span class="budget-number" id="budget-counter">0</span>
+        <p class="budget-label">
+          EGP - official allocation, revised upward annually since 2017
+        </p>
+      </div>
+      <div class="loaves-grid" id="loaves-grid"></div>
+    </div>
+
+    <div class="progress-block">
+      <div class="progress-labels">
+        <span>Phase 1 Completion</span>
+        <span>~30%</span>
+      </div>
+      <div class="progress-outer">
+        <div class="progress-inner" id="progress-bar"></div>
+      </div>
+    </div>
+
+    <p class="bread-note">
+      عيش (bread, life) was the first word of the 2011 revolution. The
+      demand was material: subsidized bread was being cut, wages had
+      flatlined, food inflation had hit the poor the hardest for a decade. The
+      NAC does not address any of this. It is a city for a projected
+      population of 6.5 million that does not yet exist, funded by a budget
+      that has never been independently audited, built on land that cost the
+      state nothing because it was already state-owned desert. The 2.91 trillion
+      pound figure is what Egypt allocated to a city that does not yet have residents,
+      in the same years it accepted IMF loans conditional on cutting bread and fuel subsidies.
+    </p>
+  </main>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-item"><span class="nav-label">Utopia</span></a>
+    <a href="bread.html" class="nav-item"><span class="nav-label">Bread</span></a>
+    <a href="freedom.html" class="nav-item"><span class="nav-label">Freedom</span></a>
+    <a href="justice.html" class="nav-item"><span class="nav-label">Justice</span></a>
+  </nav>
+
+  <script src="script.js"></script>
+  <script>
+    initPage(1);
+    initBudgetCounter();
+    initLoaves();
+  </script>
+</body>
+
+</html>

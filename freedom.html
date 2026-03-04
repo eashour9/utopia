@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utopia - Freedom</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cinzel:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+  <div id="page-indicator"></div>
+  <main class="page">
+    <div class="section-header">
+      <h2 class="section-title">Freedom</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div class="freedom-layout">
+      <div>
+        <div class="redacted-block">
+          <p>
+            Hurriya - freedom - in 2011 meant an end to emergency law, to
+            detention without charge, to a parliament that existed to ratify
+            decisions already made elsewhere. It meant the right to know what
+            was being decided, and by whom.
+          </p>
+          <p>
+            The NAC was announced at a private investment conference in Sharm
+            el-Sheikh in 2015 - not in parliament, not on state television,
+            not to the Egyptian public. The audience was
+            <span class="redact" onclick="revealToggle(this)"
+              data-text="Gulf sovereign wealth funds and foreign developers">████████████████</span>. The site, scale,
+            and cost had already been decided.
+          </p>
+          <p>
+            The land was transferred to a joint venture between the Housing
+            Ministry and
+            <span class="redact" onclick="revealToggle(this)"
+              data-text="the Armed Forces Engineering Authority (AFEA)">████████████████</span>
+            - making the military a direct commercial stakeholder in the
+            project. The new capital has no elected municipal government. Its
+            governing authority was appointed by
+            <span class="redact" onclick="revealToggle(this)" data-text="presidential decree">████████████████</span>.
+          </p>
+        </div>
+      </div>
+
+      <div class="freedom-right">
+        <div id="nac-map"></div>
+
+        <div class="blacked-stat">
+          0
+          <span>elected officials in the new capital's governing authority</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <nav id="nav">
+    <a href="index.html" class="nav-item"><span class="nav-label">Utopia</span></a>
+    <a href="bread.html" class="nav-item"><span class="nav-label">Bread</span></a>
+    <a href="freedom.html" class="nav-item"><span class="nav-label">Freedom</span></a>
+    <a href="justice.html" class="nav-item"><span class="nav-label">Justice</span></a>
+  </nav>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+  <script>
+    initPage(2);
+    initMap();
+  </script>
+</body>
+
+</html>

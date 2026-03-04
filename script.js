@@ -81,8 +81,8 @@ function revealToggle(el) {
 
 const mapPins = [
   { latlng: [30.01379579488688, 31.730987992935404], img: "img/nac.webp" },
-  { latlng: [30.0444, 31.2357],                      img: "img/cairo.webp" },
-  { latlng: [30.01, 31.45],                          img: "img/newcairo.jpg" },
+  { latlng: [30.0444, 31.2357], img: "img/cairo.webp" },
+  { latlng: [30.01, 31.45], img: "img/newcairo.jpg" },
 ];
 
 function openMapModal(index) {
@@ -111,7 +111,9 @@ function initMap() {
     subdomains: "abcd",
   }).addTo(map);
 
-  map.fitBounds(L.latLngBounds(mapPins.map(p => p.latlng)), { padding: [48, 48] });
+  map.fitBounds(L.latLngBounds(mapPins.map((p) => p.latlng)), {
+    padding: [48, 48],
+  });
 
   map.setMaxBounds(L.latLngBounds([29.8, 31.0], [30.2, 32.0]));
   map.options.maxBoundsViscosity = 1.0;

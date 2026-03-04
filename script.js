@@ -126,7 +126,7 @@ function initMap() {
 
   L.marker([30.01, 31.45], { icon: dotIcon })
     .addTo(map)
-    .bindPopup("agricultural fringe - land reclassified 2017-2020", {
+    .bindPopup("New Cairo", {
       className: "lmap-popup",
     });
 }
